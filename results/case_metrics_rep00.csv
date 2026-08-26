@@ -1,0 +1,7 @@
+dataset,model,n,pos,roc_auc,pr_auc,f1,prec,rec,bal_acc,mcc
+balanced_holdout,GradientBoosting,12,11,1.0,1.0,1.0,1.0,1.0,1.0,1.0
+balanced_holdout,LinearSVC,12,11,1.0,1.0,1.0,1.0,1.0,1.0,1.0
+strong,GradientBoosting,60,53,1.0,1.0,1.0,1.0,1.0,1.0,1.0
+strong,LinearSVC,60,53,1.0,1.0,0.8723,1.0,0.7736,0.8868,0.5339
+subtle,GradientBoosting,60,57,1.0,1.0,1.0,1.0,1.0,1.0,1.0
+subtle,LinearSVC,60,57,1.0,1.0,0.575,1.0,0.4035,0.7018,0.1809

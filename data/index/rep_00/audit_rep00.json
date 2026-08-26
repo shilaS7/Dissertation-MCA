@@ -1,0 +1,107 @@
+{
+  "balanced": {
+    "profile": "balanced",
+    "rows": 697640,
+    "label_counts": {
+      "0": 507042,
+      "1": 190598
+    },
+    "anomaly_rate": 0.2732,
+    "cases": 60,
+    "case_label_counts": {
+      "0": 5,
+      "1": 55
+    },
+    "tamper_type_cases": {
+      "altitude_spike": 7,
+      "combined": 3,
+      "coordinate_jump": 5,
+      "deletion_gap": 10,
+      "heading_inconsistency": 4,
+      "injection": 9,
+      "normal": 60,
+      "precision_rounding": 6,
+      "speed_inconsistency": 4,
+      "timestamp_drift": 7
+    },
+    "missing": {},
+    "ts_min": "1970-01-01 00:00:00+00:00",
+    "ts_max": "2024-09-15 20:25:13.233000+00:00",
+    "epoch_rows": 60,
+    "ts_decrease_frac": 0.017576,
+    "ts_max_gap_s": 1726430741.726,
+    "ts_gaps_gt_60s": 60,
+    "exact_duplicate_rows": 0,
+    "duplicate_rows_ignoring_idx": 3528
+  },
+  "strong": {
+    "profile": "strong",
+    "rows": 694786,
+    "label_counts": {
+      "0": 499045,
+      "1": 195741
+    },
+    "anomaly_rate": 0.28173,
+    "cases": 60,
+    "case_label_counts": {
+      "0": 7,
+      "1": 53
+    },
+    "tamper_type_cases": {
+      "altitude_spike": 8,
+      "combined": 2,
+      "coordinate_jump": 8,
+      "deletion_gap": 7,
+      "heading_inconsistency": 6,
+      "injection": 6,
+      "normal": 60,
+      "precision_rounding": 4,
+      "speed_inconsistency": 6,
+      "timestamp_drift": 6
+    },
+    "missing": {},
+    "ts_min": "1970-01-01 00:00:00+00:00",
+    "ts_max": "2024-09-15 20:25:13.233000+00:00",
+    "epoch_rows": 60,
+    "ts_decrease_frac": 0.01473,
+    "ts_max_gap_s": 1726430741.726,
+    "ts_gaps_gt_60s": 60,
+    "exact_duplicate_rows": 0,
+    "duplicate_rows_ignoring_idx": 3403
+  },
+  "subtle": {
+    "profile": "subtle",
+    "rows": 705587,
+    "label_counts": {
+      "0": 494624,
+      "1": 210963
+    },
+    "anomaly_rate": 0.29899,
+    "cases": 60,
+    "case_label_counts": {
+      "0": 3,
+      "1": 57
+    },
+    "tamper_type_cases": {
+      "altitude_spike": 5,
+      "combined": 3,
+      "coordinate_jump": 6,
+      "deletion_gap": 6,
+      "heading_inconsistency": 8,
+      "injection": 6,
+      "normal": 60,
+      "precision_rounding": 6,
+      "speed_inconsistency": 10,
+      "timestamp_drift": 7
+    },
+    "missing": {},
+    "ts_min": "1970-01-01 00:00:00+00:00",
+    "ts_max": "2024-09-15 20:25:13.233000+00:00",
+    "epoch_rows": 60,
+    "ts_decrease_frac": 0.017286,
+    "ts_max_gap_s": 1726430741.726,
+    "ts_gaps_gt_60s": 60,
+    "exact_duplicate_rows": 0,
+    "duplicate_rows_ignoring_idx": 3363
+  }
+}

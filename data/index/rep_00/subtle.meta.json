@@ -1,0 +1,11 @@
+{
+  "profile": "subtle",
+  "replicate": 0,
+  "mag": 0.65,
+  "created_from": "output/Decoded/decoded_flightlog.csv",
+  "cases": 60,
+  "seed": 42,
+  "anom_rate_target": 0.14,
+  "case_index_json": "cases_index.json",
+  "master_csv": "tampering_research_dataset.csv"
+}

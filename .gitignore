@@ -1,0 +1,10 @@
+.venv/
+__pycache__/
+*.pyc
+*.egg-info/
+
+drone.zip
+data/raw/
+
+results/pipeline_run.log
+.DS_Store

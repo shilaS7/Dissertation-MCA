@@ -1,0 +1,602 @@
+[
+  {
+    "case_id": 0,
+    "case_name": "case_0000_normal",
+    "profile": "strong",
+    "replicate": 0,
+    "decoded_csv": "cases/case_0000_normal/decoded_flightlog.csv",
+    "labels_csv": "cases/case_0000_normal/labels.csv",
+    "case_meta": "cases/case_0000_normal/case_meta.json",
+    "tamper_type": "normal"
+  },
+  {
+    "case_id": 1,
+    "case_name": "case_0001_deletion_gap",
+    "profile": "strong",
+    "replicate": 0,
+    "decoded_csv": "cases/case_0001_deletion_gap/decoded_flightlog.csv",
+    "labels_csv": "cases/case_0001_deletion_gap/labels.csv",
+    "case_meta": "cases/case_0001_deletion_gap/case_meta.json",
+    "tamper_type": "deletion_gap"
+  },
+  {
+    "case_id": 2,
+    "case_name": "case_0002_injection",
+    "profile": "strong",
+    "replicate": 0,
+    "decoded_csv": "cases/case_0002_injection/decoded_flightlog.csv",
+    "labels_csv": "cases/case_0002_injection/labels.csv",
+    "case_meta": "cases/case_0002_injection/case_meta.json",
+    "tamper_type": "injection"
+  },
+  {
+    "case_id": 3,
+    "case_name": "case_0003_precision_rounding",
+    "profile": "strong",
+    "replicate": 0,
+    "decoded_csv": "cases/case_0003_precision_rounding/decoded_flightlog.csv",
+    "labels_csv": "cases/case_0003_precision_rounding/labels.csv",
+    "case_meta": "cases/case_0003_precision_rounding/case_meta.json",
+    "tamper_type": "precision_rounding"
+  },
+  {
+    "case_id": 4,
+    "case_name": "case_0004_coordinate_jump",
+    "profile": "strong",
+    "replicate": 0,
+    "decoded_csv": "cases/case_0004_coordinate_jump/decoded_flightlog.csv",
+    "labels_csv": "cases/case_0004_coordinate_jump/labels.csv",
+    "case_meta": "cases/case_0004_coordinate_jump/case_meta.json",
+    "tamper_type": "coordinate_jump"
+  },
+  {
+    "case_id": 5,
+    "case_name": "case_0005_injection",
+    "profile": "strong",
+    "replicate": 0,
+    "decoded_csv": "cases/case_0005_injection/decoded_flightlog.csv",
+    "labels_csv": "cases/case_0005_injection/labels.csv",
+    "case_meta": "cases/case_0005_injection/case_meta.json",
+    "tamper_type": "injection"
+  },
+  {
+    "case_id": 6,
+    "case_name": "case_0006_altitude_spike",
+    "profile": "strong",
+    "replicate": 0,
+    "decoded_csv": "cases/case_0006_altitude_spike/decoded_flightlog.csv",
+    "labels_csv": "cases/case_0006_altitude_spike/labels.csv",
+    "case_meta": "cases/case_0006_altitude_spike/case_meta.json",
+    "tamper_type": "altitude_spike"
+  },
+  {
+    "case_id": 7,
+    "case_name": "case_0007_combined",
+    "profile": "strong",
+    "replicate": 0,
+    "decoded_csv": "cases/case_0007_combined/decoded_flightlog.csv",
+    "labels_csv": "cases/case_0007_combined/labels.csv",
+    "case_meta": "cases/case_0007_combined/case_meta.json",
+    "tamper_type": "combined"
+  },
+  {
+    "case_id": 8,
+    "case_name": "case_0008_deletion_gap",
+    "profile": "strong",
+    "replicate": 0,
+    "decoded_csv": "cases/case_0008_deletion_gap/decoded_flightlog.csv",
+    "labels_csv": "cases/case_0008_deletion_gap/labels.csv",
+    "case_meta": "cases/case_0008_deletion_gap/case_meta.json",
+    "tamper_type": "deletion_gap"
+  },
+  {
+    "case_id": 9,
+    "case_name": "case_0009_precision_rounding",
+    "profile": "strong",
+    "replicate": 0,
+    "decoded_csv": "cases/case_0009_precision_rounding/decoded_flightlog.csv",
+    "labels_csv": "cases/case_0009_precision_rounding/labels.csv",
+    "case_meta": "cases/case_0009_precision_rounding/case_meta.json",
+    "tamper_type": "precision_rounding"
+  },
+  {
+    "case_id": 10,
+    "case_name": "case_0010_coordinate_jump",
+    "profile": "strong",
+    "replicate": 0,
+    "decoded_csv": "cases/case_0010_coordinate_jump/decoded_flightlog.csv",
+    "labels_csv": "cases/case_0010_coordinate_jump/labels.csv",
+    "case_meta": "cases/case_0010_coordinate_jump/case_meta.json",
+    "tamper_type": "coordinate_jump"
+  },
+  {
+    "case_id": 11,
+    "case_name": "case_0011_speed_inconsistency",
+    "profile": "strong",
+    "replicate": 0,
+    "decoded_csv": "cases/case_0011_speed_inconsistency/decoded_flightlog.csv",
+    "labels_csv": "cases/case_0011_speed_inconsistency/labels.csv",
+    "case_meta": "cases/case_0011_speed_inconsistency/case_meta.json",
+    "tamper_type": "speed_inconsistency"
+  },
+  {
+    "case_id": 12,
+    "case_name": "case_0012_speed_inconsistency",
+    "profile": "strong",
+    "replicate": 0,
+    "decoded_csv": "cases/case_0012_speed_inconsistency/decoded_flightlog.csv",
+    "labels_csv": "cases/case_0012_speed_inconsistency/labels.csv",
+    "case_meta": "cases/case_0012_speed_inconsistency/case_meta.json",
+    "tamper_type": "speed_inconsistency"
+  },
+  {
+    "case_id": 13,
+    "case_name": "case_0013_altitude_spike",
+    "profile": "strong",
+    "replicate": 0,
+    "decoded_csv": "cases/case_0013_altitude_spike/decoded_flightlog.csv",
+    "labels_csv": "cases/case_0013_altitude_spike/labels.csv",
+    "case_meta": "cases/case_0013_altitude_spike/case_meta.json",
+    "tamper_type": "altitude_spike"
+  },
+  {
+    "case_id": 14,
+    "case_name": "case_0014_deletion_gap",
+    "profile": "strong",
+    "replicate": 0,
+    "decoded_csv": "cases/case_0014_deletion_gap/decoded_flightlog.csv",
+    "labels_csv": "cases/case_0014_deletion_gap/labels.csv",
+    "case_meta": "cases/case_0014_deletion_gap/case_meta.json",
+    "tamper_type": "deletion_gap"
+  },
+  {
+    "case_id": 15,
+    "case_name": "case_0015_heading_inconsistency",
+    "profile": "strong",
+    "replicate": 0,
+    "decoded_csv": "cases/case_0015_heading_inconsistency/decoded_flightlog.csv",
+    "labels_csv": "cases/case_0015_heading_inconsistency/labels.csv",
+    "case_meta": "cases/case_0015_heading_inconsistency/case_meta.json",
+    "tamper_type": "heading_inconsistency"
+  },
+  {
+    "case_id": 16,
+    "case_name": "case_0016_injection",
+    "profile": "strong",
+    "replicate": 0,
+    "decoded_csv": "cases/case_0016_injection/decoded_flightlog.csv",
+    "labels_csv": "cases/case_0016_injection/labels.csv",
+    "case_meta": "cases/case_0016_injection/case_meta.json",
+    "tamper_type": "injection"
+  },
+  {
+    "case_id": 17,
+    "case_name": "case_0017_timestamp_drift",
+    "profile": "strong",
+    "replicate": 0,
+    "decoded_csv": "cases/case_0017_timestamp_drift/decoded_flightlog.csv",
+    "labels_csv": "cases/case_0017_timestamp_drift/labels.csv",
+    "case_meta": "cases/case_0017_timestamp_drift/case_meta.json",
+    "tamper_type": "timestamp_drift"
+  },
+  {
+    "case_id": 18,
+    "case_name": "case_0018_heading_inconsistency",
+    "profile": "strong",
+    "replicate": 0,
+    "decoded_csv": "cases/case_0018_heading_inconsistency/decoded_flightlog.csv",
+    "labels_csv": "cases/case_0018_heading_inconsistency/labels.csv",
+    "case_meta": "cases/case_0018_heading_inconsistency/case_meta.json",
+    "tamper_type": "heading_inconsistency"
+  },
+  {
+    "case_id": 19,
+    "case_name": "case_0019_precision_rounding",
+    "profile": "strong",
+    "replicate": 0,
+    "decoded_csv": "cases/case_0019_precision_rounding/decoded_flightlog.csv",
+    "labels_csv": "cases/case_0019_precision_rounding/labels.csv",
+    "case_meta": "cases/case_0019_precision_rounding/case_meta.json",
+    "tamper_type": "precision_rounding"
+  },
+  {
+    "case_id": 20,
+    "case_name": "case_0020_deletion_gap",
+    "profile": "strong",
+    "replicate": 0,
+    "decoded_csv": "cases/case_0020_deletion_gap/decoded_flightlog.csv",
+    "labels_csv": "cases/case_0020_deletion_gap/labels.csv",
+    "case_meta": "cases/case_0020_deletion_gap/case_meta.json",
+    "tamper_type": "deletion_gap"
+  },
+  {
+    "case_id": 21,
+    "case_name": "case_0021_altitude_spike",
+    "profile": "strong",
+    "replicate": 0,
+    "decoded_csv": "cases/case_0021_altitude_spike/decoded_flightlog.csv",
+    "labels_csv": "cases/case_0021_altitude_spike/labels.csv",
+    "case_meta": "cases/case_0021_altitude_spike/case_meta.json",
+    "tamper_type": "altitude_spike"
+  },
+  {
+    "case_id": 22,
+    "case_name": "case_0022_coordinate_jump",
+    "profile": "strong",
+    "replicate": 0,
+    "decoded_csv": "cases/case_0022_coordinate_jump/decoded_flightlog.csv",
+    "labels_csv": "cases/case_0022_coordinate_jump/labels.csv",
+    "case_meta": "cases/case_0022_coordinate_jump/case_meta.json",
+    "tamper_type": "coordinate_jump"
+  },
+  {
+    "case_id": 23,
+    "case_name": "case_0023_speed_inconsistency",
+    "profile": "strong",
+    "replicate": 0,
+    "decoded_csv": "cases/case_0023_speed_inconsistency/decoded_flightlog.csv",
+    "labels_csv": "cases/case_0023_speed_inconsistency/labels.csv",
+    "case_meta": "cases/case_0023_speed_inconsistency/case_meta.json",
+    "tamper_type": "speed_inconsistency"
+  },
+  {
+    "case_id": 24,
+    "case_name": "case_0024_coordinate_jump",
+    "profile": "strong",
+    "replicate": 0,
+    "decoded_csv": "cases/case_0024_coordinate_jump/decoded_flightlog.csv",
+    "labels_csv": "cases/case_0024_coordinate_jump/labels.csv",
+    "case_meta": "cases/case_0024_coordinate_jump/case_meta.json",
+    "tamper_type": "coordinate_jump"
+  },
+  {
+    "case_id": 25,
+    "case_name": "case_0025_speed_inconsistency",
+    "profile": "strong",
+    "replicate": 0,
+    "decoded_csv": "cases/case_0025_speed_inconsistency/decoded_flightlog.csv",
+    "labels_csv": "cases/case_0025_speed_inconsistency/labels.csv",
+    "case_meta": "cases/case_0025_speed_inconsistency/case_meta.json",
+    "tamper_type": "speed_inconsistency"
+  },
+  {
+    "case_id": 26,
+    "case_name": "case_0026_altitude_spike",
+    "profile": "strong",
+    "replicate": 0,
+    "decoded_csv": "cases/case_0026_altitude_spike/decoded_flightlog.csv",
+    "labels_csv": "cases/case_0026_altitude_spike/labels.csv",
+    "case_meta": "cases/case_0026_altitude_spike/case_meta.json",
+    "tamper_type": "altitude_spike"
+  },
+  {
+    "case_id": 27,
+    "case_name": "case_0027_timestamp_drift",
+    "profile": "strong",
+    "replicate": 0,
+    "decoded_csv": "cases/case_0027_timestamp_drift/decoded_flightlog.csv",
+    "labels_csv": "cases/case_0027_timestamp_drift/labels.csv",
+    "case_meta": "cases/case_0027_timestamp_drift/case_meta.json",
+    "tamper_type": "timestamp_drift"
+  },
+  {
+    "case_id": 28,
+    "case_name": "case_0028_precision_rounding",
+    "profile": "strong",
+    "replicate": 0,
+    "decoded_csv": "cases/case_0028_precision_rounding/decoded_flightlog.csv",
+    "labels_csv": "cases/case_0028_precision_rounding/labels.csv",
+    "case_meta": "cases/case_0028_precision_rounding/case_meta.json",
+    "tamper_type": "precision_rounding"
+  },
+  {
+    "case_id": 29,
+    "case_name": "case_0029_deletion_gap",
+    "profile": "strong",
+    "replicate": 0,
+    "decoded_csv": "cases/case_0029_deletion_gap/decoded_flightlog.csv",
+    "labels_csv": "cases/case_0029_deletion_gap/labels.csv",
+    "case_meta": "cases/case_0029_deletion_gap/case_meta.json",
+    "tamper_type": "deletion_gap"
+  },
+  {
+    "case_id": 30,
+    "case_name": "case_0030_injection",
+    "profile": "strong",
+    "replicate": 0,
+    "decoded_csv": "cases/case_0030_injection/decoded_flightlog.csv",
+    "labels_csv": "cases/case_0030_injection/labels.csv",
+    "case_meta": "cases/case_0030_injection/case_meta.json",
+    "tamper_type": "injection"
+  },
+  {
+    "case_id": 31,
+    "case_name": "case_0031_altitude_spike",
+    "profile": "strong",
+    "replicate": 0,
+    "decoded_csv": "cases/case_0031_altitude_spike/decoded_flightlog.csv",
+    "labels_csv": "cases/case_0031_altitude_spike/labels.csv",
+    "case_meta": "cases/case_0031_altitude_spike/case_meta.json",
+    "tamper_type": "altitude_spike"
+  },
+  {
+    "case_id": 32,
+    "case_name": "case_0032_heading_inconsistency",
+    "profile": "strong",
+    "replicate": 0,
+    "decoded_csv": "cases/case_0032_heading_inconsistency/decoded_flightlog.csv",
+    "labels_csv": "cases/case_0032_heading_inconsistency/labels.csv",
+    "case_meta": "cases/case_0032_heading_inconsistency/case_meta.json",
+    "tamper_type": "heading_inconsistency"
+  },
+  {
+    "case_id": 33,
+    "case_name": "case_0033_coordinate_jump",
+    "profile": "strong",
+    "replicate": 0,
+    "decoded_csv": "cases/case_0033_coordinate_jump/decoded_flightlog.csv",
+    "labels_csv": "cases/case_0033_coordinate_jump/labels.csv",
+    "case_meta": "cases/case_0033_coordinate_jump/case_meta.json",
+    "tamper_type": "coordinate_jump"
+  },
+  {
+    "case_id": 34,
+    "case_name": "case_0034_altitude_spike",
+    "profile": "strong",
+    "replicate": 0,
+    "decoded_csv": "cases/case_0034_altitude_spike/decoded_flightlog.csv",
+    "labels_csv": "cases/case_0034_altitude_spike/labels.csv",
+    "case_meta": "cases/case_0034_altitude_spike/case_meta.json",
+    "tamper_type": "altitude_spike"
+  },
+  {
+    "case_id": 35,
+    "case_name": "case_0035_speed_inconsistency",
+    "profile": "strong",
+    "replicate": 0,
+    "decoded_csv": "cases/case_0035_speed_inconsistency/decoded_flightlog.csv",
+    "labels_csv": "cases/case_0035_speed_inconsistency/labels.csv",
+    "case_meta": "cases/case_0035_speed_inconsistency/case_meta.json",
+    "tamper_type": "speed_inconsistency"
+  },
+  {
+    "case_id": 36,
+    "case_name": "case_0036_normal",
+    "profile": "strong",
+    "replicate": 0,
+    "decoded_csv": "cases/case_0036_normal/decoded_flightlog.csv",
+    "labels_csv": "cases/case_0036_normal/labels.csv",
+    "case_meta": "cases/case_0036_normal/case_meta.json",
+    "tamper_type": "normal"
+  },
+  {
+    "case_id": 37,
+    "case_name": "case_0037_normal",
+    "profile": "strong",
+    "replicate": 0,
+    "decoded_csv": "cases/case_0037_normal/decoded_flightlog.csv",
+    "labels_csv": "cases/case_0037_normal/labels.csv",
+    "case_meta": "cases/case_0037_normal/case_meta.json",
+    "tamper_type": "normal"
+  },
+  {
+    "case_id": 38,
+    "case_name": "case_0038_coordinate_jump",
+    "profile": "strong",
+    "replicate": 0,
+    "decoded_csv": "cases/case_0038_coordinate_jump/decoded_flightlog.csv",
+    "labels_csv": "cases/case_0038_coordinate_jump/labels.csv",
+    "case_meta": "cases/case_0038_coordinate_jump/case_meta.json",
+    "tamper_type": "coordinate_jump"
+  },
+  {
+    "case_id": 39,
+    "case_name": "case_0039_timestamp_drift",
+    "profile": "strong",
+    "replicate": 0,
+    "decoded_csv": "cases/case_0039_timestamp_drift/decoded_flightlog.csv",
+    "labels_csv": "cases/case_0039_timestamp_drift/labels.csv",
+    "case_meta": "cases/case_0039_timestamp_drift/case_meta.json",
+    "tamper_type": "timestamp_drift"
+  },
+  {
+    "case_id": 40,
+    "case_name": "case_0040_deletion_gap",
+    "profile": "strong",
+    "replicate": 0,
+    "decoded_csv": "cases/case_0040_deletion_gap/decoded_flightlog.csv",
+    "labels_csv": "cases/case_0040_deletion_gap/labels.csv",
+    "case_meta": "cases/case_0040_deletion_gap/case_meta.json",
+    "tamper_type": "deletion_gap"
+  },
+  {
+    "case_id": 41,
+    "case_name": "case_0041_heading_inconsistency",
+    "profile": "strong",
+    "replicate": 0,
+    "decoded_csv": "cases/case_0041_heading_inconsistency/decoded_flightlog.csv",
+    "labels_csv": "cases/case_0041_heading_inconsistency/labels.csv",
+    "case_meta": "cases/case_0041_heading_inconsistency/case_meta.json",
+    "tamper_type": "heading_inconsistency"
+  },
+  {
+    "case_id": 42,
+    "case_name": "case_0042_coordinate_jump",
+    "profile": "strong",
+    "replicate": 0,
+    "decoded_csv": "cases/case_0042_coordinate_jump/decoded_flightlog.csv",
+    "labels_csv": "cases/case_0042_coordinate_jump/labels.csv",
+    "case_meta": "cases/case_0042_coordinate_jump/case_meta.json",
+    "tamper_type": "coordinate_jump"
+  },
+  {
+    "case_id": 43,
+    "case_name": "case_0043_normal",
+    "profile": "strong",
+    "replicate": 0,
+    "decoded_csv": "cases/case_0043_normal/decoded_flightlog.csv",
+    "labels_csv": "cases/case_0043_normal/labels.csv",
+    "case_meta": "cases/case_0043_normal/case_meta.json",
+    "tamper_type": "normal"
+  },
+  {
+    "case_id": 44,
+    "case_name": "case_0044_deletion_gap",
+    "profile": "strong",
+    "replicate": 0,
+    "decoded_csv": "cases/case_0044_deletion_gap/decoded_flightlog.csv",
+    "labels_csv": "cases/case_0044_deletion_gap/labels.csv",
+    "case_meta": "cases/case_0044_deletion_gap/case_meta.json",
+    "tamper_type": "deletion_gap"
+  },
+  {
+    "case_id": 45,
+    "case_name": "case_0045_combined",
+    "profile": "strong",
+    "replicate": 0,
+    "decoded_csv": "cases/case_0045_combined/decoded_flightlog.csv",
+    "labels_csv": "cases/case_0045_combined/labels.csv",
+    "case_meta": "cases/case_0045_combined/case_meta.json",
+    "tamper_type": "combined"
+  },
+  {
+    "case_id": 46,
+    "case_name": "case_0046_normal",
+    "profile": "strong",
+    "replicate": 0,
+    "decoded_csv": "cases/case_0046_normal/decoded_flightlog.csv",
+    "labels_csv": "cases/case_0046_normal/labels.csv",
+    "case_meta": "cases/case_0046_normal/case_meta.json",
+    "tamper_type": "normal"
+  },
+  {
+    "case_id": 47,
+    "case_name": "case_0047_coordinate_jump",
+    "profile": "strong",
+    "replicate": 0,
+    "decoded_csv": "cases/case_0047_coordinate_jump/decoded_flightlog.csv",
+    "labels_csv": "cases/case_0047_coordinate_jump/labels.csv",
+    "case_meta": "cases/case_0047_coordinate_jump/case_meta.json",
+    "tamper_type": "coordinate_jump"
+  },
+  {
+    "case_id": 48,
+    "case_name": "case_0048_heading_inconsistency",
+    "profile": "strong",
+    "replicate": 0,
+    "decoded_csv": "cases/case_0048_heading_inconsistency/decoded_flightlog.csv",
+    "labels_csv": "cases/case_0048_heading_inconsistency/labels.csv",
+    "case_meta": "cases/case_0048_heading_inconsistency/case_meta.json",
+    "tamper_type": "heading_inconsistency"
+  },
+  {
+    "case_id": 49,
+    "case_name": "case_0049_heading_inconsistency",
+    "profile": "strong",
+    "replicate": 0,
+    "decoded_csv": "cases/case_0049_heading_inconsistency/decoded_flightlog.csv",
+    "labels_csv": "cases/case_0049_heading_inconsistency/labels.csv",
+    "case_meta": "cases/case_0049_heading_inconsistency/case_meta.json",
+    "tamper_type": "heading_inconsistency"
+  },
+  {
+    "case_id": 50,
+    "case_name": "case_0050_injection",
+    "profile": "strong",
+    "replicate": 0,
+    "decoded_csv": "cases/case_0050_injection/decoded_flightlog.csv",
+    "labels_csv": "cases/case_0050_injection/labels.csv",
+    "case_meta": "cases/case_0050_injection/case_meta.json",
+    "tamper_type": "injection"
+  },
+  {
+    "case_id": 51,
+    "case_name": "case_0051_altitude_spike",
+    "profile": "strong",
+    "replicate": 0,
+    "decoded_csv": "cases/case_0051_altitude_spike/decoded_flightlog.csv",
+    "labels_csv": "cases/case_0051_altitude_spike/labels.csv",
+    "case_meta": "cases/case_0051_altitude_spike/case_meta.json",
+    "tamper_type": "altitude_spike"
+  },
+  {
+    "case_id": 52,
+    "case_name": "case_0052_altitude_spike",
+    "profile": "strong",
+    "replicate": 0,
+    "decoded_csv": "cases/case_0052_altitude_spike/decoded_flightlog.csv",
+    "labels_csv": "cases/case_0052_altitude_spike/labels.csv",
+    "case_meta": "cases/case_0052_altitude_spike/case_meta.json",
+    "tamper_type": "altitude_spike"
+  },
+  {
+    "case_id": 53,
+    "case_name": "case_0053_timestamp_drift",
+    "profile": "strong",
+    "replicate": 0,
+    "decoded_csv": "cases/case_0053_timestamp_drift/decoded_flightlog.csv",
+    "labels_csv": "cases/case_0053_timestamp_drift/labels.csv",
+    "case_meta": "cases/case_0053_timestamp_drift/case_meta.json",
+    "tamper_type": "timestamp_drift"
+  },
+  {
+    "case_id": 54,
+    "case_name": "case_0054_speed_inconsistency",
+    "profile": "strong",
+    "replicate": 0,
+    "decoded_csv": "cases/case_0054_speed_inconsistency/decoded_flightlog.csv",
+    "labels_csv": "cases/case_0054_speed_inconsistency/labels.csv",
+    "case_meta": "cases/case_0054_speed_inconsistency/case_meta.json",
+    "tamper_type": "speed_inconsistency"
+  },
+  {
+    "case_id": 55,
+    "case_name": "case_0055_normal",
+    "profile": "strong",
+    "replicate": 0,
+    "decoded_csv": "cases/case_0055_normal/decoded_flightlog.csv",
+    "labels_csv": "cases/case_0055_normal/labels.csv",
+    "case_meta": "cases/case_0055_normal/case_meta.json",
+    "tamper_type": "normal"
+  },
+  {
+    "case_id": 56,
+    "case_name": "case_0056_injection",
+    "profile": "strong",
+    "replicate": 0,
+    "decoded_csv": "cases/case_0056_injection/decoded_flightlog.csv",
+    "labels_csv": "cases/case_0056_injection/labels.csv",
+    "case_meta": "cases/case_0056_injection/case_meta.json",
+    "tamper_type": "injection"
+  },
+  {
+    "case_id": 57,
+    "case_name": "case_0057_timestamp_drift",
+    "profile": "strong",
+    "replicate": 0,
+    "decoded_csv": "cases/case_0057_timestamp_drift/decoded_flightlog.csv",
+    "labels_csv": "cases/case_0057_timestamp_drift/labels.csv",
+    "case_meta": "cases/case_0057_timestamp_drift/case_meta.json",
+    "tamper_type": "timestamp_drift"
+  },
+  {
+    "case_id": 58,
+    "case_name": "case_0058_timestamp_drift",
+    "profile": "strong",
+    "replicate": 0,
+    "decoded_csv": "cases/case_0058_timestamp_drift/decoded_flightlog.csv",
+    "labels_csv": "cases/case_0058_timestamp_drift/labels.csv",
+    "case_meta": "cases/case_0058_timestamp_drift/case_meta.json",
+    "tamper_type": "timestamp_drift"
+  },
+  {
+    "case_id": 59,
+    "case_name": "case_0059_normal",
+    "profile": "strong",
+    "replicate": 0,
+    "decoded_csv": "cases/case_0059_normal/decoded_flightlog.csv",
+    "labels_csv": "cases/case_0059_normal/labels.csv",
+    "case_meta": "cases/case_0059_normal/case_meta.json",
+    "tamper_type": "normal"
+  }
+]
