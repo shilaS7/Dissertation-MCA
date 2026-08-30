@@ -1,7 +1,7 @@
 # Comparison of Gradient Boosting and Support Vector Machine for Drone Flight-Log Tamper Detection
 
 **Dataset:** Drone Telemetry Tampering Dataset v2 (Kaggle, CC BY-SA 4.0, synthetically generated)
-**Reproducible via:** `uv` + Jupyter notebook (`notebooks/01_gradient_boosting_vs_svm.ipynb`)
+**Reproducible via:** `uv` + `scripts/run_pipeline.py` (plain Python, no notebook)
 **Date:** 2026-08-21
 
 ---
@@ -316,10 +316,11 @@ Environment and artifacts:
 
 - `pyproject.toml` / `uv.lock` — Python 3.12.12, pandas 3.0.5, numpy 2.5.2,
   scikit-learn 1.9.0; dependencies pinned by `uv`.
-- `notebooks/01_gradient_boosting_vs_svm.ipynb` — single executed notebook (14 code cells,
-  0 errors), runnable top-to-bottom with `uv run jupyter nbconvert --execute`.
+- `src/drone_tamper/` — the pipeline as an importable package (data loading, feature
+  engineering, models, metrics, aggregation, orchestration).
+- `scripts/run_pipeline.py` — runs the full experiment end to end (Steps 1-7, replicate 0
+  plus the 0-3 robustness/RBF passes), runnable with `uv run python scripts/run_pipeline.py`.
 - `scripts/extract_replicates.py` — extracts the required profile CSVs from the archive.
-- `scripts/make_notebook.py` — regenerates the notebook from its source cell definitions.
 - `scripts/make_figures.py` — regenerates the report figures from saved CSV results.
 - `data/raw/rep_00`–`rep_03` — extracted per-profile CSVs (re-extractable from `drone.zip`).
 - `results/` — all metric tables as CSV:
@@ -342,9 +343,9 @@ tests; full experiment repeated over replicates 0–3; RBF SVM trained on a dete
 This part explains exactly how the project was built, file by file and function by
 function, and the reasoning behind every significant choice. It is written so that the
 results in Part I can be reproduced and, more importantly, so the *decisions* can be
-audited. All code references are to `scripts/make_notebook.py` (which generates the
-executed notebook `notebooks/01_gradient_boosting_vs_svm.ipynb`), `scripts/extract_replicates.py`,
-`scripts/make_figures.py`, `pyproject.toml`, and `results/*.csv`.
+audited. All code references are to the `src/drone_tamper/` package and
+`scripts/run_pipeline.py`, `scripts/extract_replicates.py`, `scripts/make_figures.py`,
+`pyproject.toml`, and `results/*.csv`.
 
 ## 9. Implementation walkthrough
 
@@ -355,43 +356,59 @@ drone.zip                       Kaggle archive (ignored by git)
  ├─ drone_temparing_dataset_v2/
  │   ├─ balanced|strong|subtle/
  │   │   └─ rep_00..rep_03/tampering_research_dataset.csv   (12 CSVs, ~120 MB each)
+ ├─ src/drone_tamper/            the pipeline as an importable package
+ │   ├─ config.py                 paths, dtypes, seeds, constants
+ │   ├─ io.py                     CSV loading + timestamp parsing
+ │   ├─ audit.py                  Step 1 data audit
+ │   ├─ features.py               Step 2 temporal/kinematic feature engineering
+ │   ├─ splits.py                 Step 2b case-level 80/20 split
+ │   ├─ models.py                 Step 3 model builders (GB, linear SVM, RBF SVM)
+ │   ├─ metrics.py                threshold tuning + row/case metrics
+ │   ├─ aggregate.py              Steps 3c/4/4b case + per-tamper-type aggregation
+ │   └─ experiment.py             orchestrates Steps 1-7
  ├─ scripts/
  │   ├─ extract_replicates.py    unzip per-replicate profile CSVs into data/raw/rep_XX/
- │   ├─ make_notebook.py         regenerate the analysis notebook from cell definitions
+ │   ├─ run_pipeline.py          run Steps 1-7 end to end, write results/*.csv
  │   └─ make_figures.py          render REPORT figures from results/*.csv
  ├─ data/raw/rep_00..rep_03/     extracted CSVs (git-ignored)
  ├─ data/index/rep_00/           audit JSON + cases_index for replicate 0
- ├─ notebooks/01_...ipynb        the executed analysis (the actual "program")
  ├─ results/*.csv                every metric table
  ├─ figures/*.png                report figures
  ├─ REPORT.md, README.md
  └─ pyproject.toml, uv.lock      locked environment
 ```
 
-The single source of truth for the experiment is the notebook. It is produced from
-`scripts/make_notebook.py` because building the `.ipynb` JSON by hand is error-prone; the
-script keeps the notebook's code cells as plain Python strings, so the exact code is
-version-controlled in a diffable form. `make_notebook.py` writes the notebook JSON and
-`nbconvert --execute` runs it, persisting outputs. The extraction script and figure script
-are thin I/O helpers around the same pipeline.
+The single source of truth for the experiment is `src/drone_tamper/`, a normal installable
+Python package (`pyproject.toml` declares it as a `hatchling` build target, so
+`uv sync` installs it in editable mode). `scripts/run_pipeline.py` imports it and runs
+Steps 1-7 end to end, writing the same `results/*.csv` tables and tee-ing its console
+output to `results/pipeline_run.log`. The extraction script and figure script are thin
+I/O helpers around the same pipeline. (An earlier version of this project generated and
+executed a Jupyter notebook from string-embedded code cells; it was replaced by this
+package so the analysis code is directly readable, testable, and importable rather than
+living inside notebook-cell string blobs.)
 
 ### 9.2 Environment and tooling choices
 
 - **Python 3.12 via `uv`.** `uv init --python 3.12` creates `pyproject.toml`,
-  `.python-version`, and a lock file. `uv add numpy pandas scikit-learn jupyterlab
-  ipykernel matplotlib seaborn nbconvert` pins exact versions in `uv.lock`, so any machine
-  can recreate the interpreter and packages with `uv sync`. This makes the experiment
-  reproducible without a hand-written requirements list.
-- **Jupyter notebook as the deliverable** because the task explicitly asked for a
-  notebook, and it mixes narrative, tables, and figures.
-- **`nbconvert` headless execution** (`uv run jupyter nbconvert --to notebook --execute`)
-  is used so the notebook is verified to run top-to-bottom from a clean process, not only
-  as a set of cells the author happened to run in order.
+  `.python-version`, and a lock file. `uv add numpy pandas scikit-learn matplotlib` pins
+  exact versions in `uv.lock`, so any machine can recreate the interpreter and packages
+  with `uv sync`. This makes the experiment reproducible without a hand-written
+  requirements list.
+- **A plain Python package (`src/drone_tamper/`) as the deliverable**, run via
+  `scripts/run_pipeline.py`, rather than a notebook — the analysis code is directly
+  importable and unit-testable, and `--only`/`--skip` flags give the same "just rerun
+  this step" granularity a notebook's per-cell execution gave, without carrying a
+  Jupyter/`nbconvert`/`ipykernel` dependency chain.
+- **Deterministic headless execution** (`uv run python scripts/run_pipeline.py`) verifies
+  the whole pipeline runs top-to-bottom from a clean process every time, the same
+  guarantee `nbconvert --execute` used to provide for the notebook.
 - **pandas 3.0.5, scikit-learn 1.9.0.** A real compatibility issue surfaced and was
   handled: `pd.read_csv(..., parse_dates=["timestamp"])` silently failed to parse the
   `...T20:05:41.726000+00:00` strings under pandas 3.0, producing all-`NaT` timestamps.
-  The fix was explicit: `pd.to_datetime(col, format="ISO8601", errors="coerce")`. This is
-  why the notebook verifies row counts *and* re-checks that `timestamp` parses to non-NaT.
+  The fix was explicit: `pd.to_datetime(col, format="ISO8601", errors="coerce")` in
+  `drone_tamper/io.py`. This is why the Step 1 audit verifies row counts *and* re-checks
+  that `timestamp` parses to non-NaT.
 
 ### 9.3 Loading and memory management
 
@@ -405,7 +422,8 @@ bounded.
 
 All features are computed **inside each case** by grouping on `case_id` and using
 `groupby(...).shift()`, so row *k* compares against row *k-1 of the same flight*. The
-first row of a case gets `NaN` (no predecessor). `eng()` in the notebook produces these
+first row of a case gets `NaN` (no predecessor). `engineer_features()` in
+`drone_tamper/features.py` produces these
 columns:
 
 | Column | Formula | Why |
@@ -509,7 +527,7 @@ stable.
 
 ### 9.9 Robustness loop (replicates 0–3)
 
-`run_replicate(repl)` re-executes the whole protocol (load → features → split → train GB
+`experiment._run_robustness_replicate(repl)` re-executes the whole protocol (load → features → split → train GB
 + LinearSVC → tune thresholds → score) for each of `rep_00..rep_03` and records the same
 metrics. Mean ± std across replicates quantifies how much the synthetic arrangement
 affects the results; the low variance and the exact reproduction of rep_00 confirm the

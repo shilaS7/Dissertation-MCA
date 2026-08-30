@@ -1,7 +1,7 @@
 dataset,model,pr_auc,roc_auc,f1,bal_acc
-balanced_holdout,GradientBoosting,0.7667 ± 0.0455,0.8257 ± 0.0172,0.6864 ± 0.0688,0.7696 ± 0.0387
+balanced_holdout,GradientBoosting,0.7664 ± 0.0467,0.8252 ± 0.0186,0.6869 ± 0.0691,0.7733 ± 0.0365
 balanced_holdout,LinearSVC,0.5692 ± 0.0582,0.6979 ± 0.0324,0.5002 ± 0.0533,0.6532 ± 0.0466
-strong,GradientBoosting,0.7695 ± 0.0061,0.8319 ± 0.0107,0.6945 ± 0.0065,0.7745 ± 0.0073
+strong,GradientBoosting,0.7663 ± 0.0063,0.8311 ± 0.0111,0.6940 ± 0.0067,0.7752 ± 0.0070
 strong,LinearSVC,0.5588 ± 0.0121,0.6913 ± 0.0062,0.4951 ± 0.0073,0.6366 ± 0.0254
-subtle,GradientBoosting,0.7846 ± 0.0204,0.8262 ± 0.0072,0.6825 ± 0.0321,0.7648 ± 0.0176
+subtle,GradientBoosting,0.7845 ± 0.0198,0.8264 ± 0.0063,0.6827 ± 0.0311,0.7663 ± 0.0180
 subtle,LinearSVC,0.5556 ± 0.0365,0.6602 ± 0.0204,0.4325 ± 0.0422,0.6081 ± 0.0216
