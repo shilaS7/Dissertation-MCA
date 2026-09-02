@@ -9,6 +9,7 @@ the replicates they need from disk.
 import json
 import time
 
+import joblib
 import numpy as np
 import pandas as pd
 from sklearn.model_selection import train_test_split
@@ -89,6 +90,17 @@ def run_main(replicate: int = 0) -> dict:
     res_row = pd.DataFrame(results_row)
     print(res_row.to_string(index=False))
     res_row.to_csv(RESULTS / f"row_metrics_rep{replicate:02d}.csv", index=False)
+
+    models_dir = RESULTS / "models"
+    models_dir.mkdir(exist_ok=True)
+    model_path = models_dir / f"gb_rep{replicate:02d}.joblib"
+    joblib.dump({
+        "model": hgb,
+        "threshold": thr_h,
+        "feature_names": list(feats_bal.columns),
+        "replicate": replicate,
+    }, model_path)
+    print(f"saved model -> {model_path}")
 
     print("\n=== Step 3c: Case-level evaluation ===")
     sh_bal, ss_bal = scores_of(bal_s, feats_bal)

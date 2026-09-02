@@ -5,6 +5,8 @@ __pycache__/
 
 drone.zip
 data/raw/
+data/logs/
 
 results/pipeline_run.log
+results/scored/
 .DS_Store
