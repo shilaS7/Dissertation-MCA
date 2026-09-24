@@ -1,4 +1,4 @@
-vvvVs# Comparison of Gradient Boosting and Support Vector Machine for Drone Flight-Log Tamper Detection
+# Comparison of Gradient Boosting and Support Vector Machine for Drone Flight-Log Tamper Detection
 
 **Dataset:** Drone Telemetry Tampering Dataset v2 (Kaggle, CC BY-SA 4.0, synthetically generated)
 **Reproducible via:** `uv` + `scripts/run_pipeline.py` (plain Python, no notebook)
@@ -7,7 +7,7 @@ vvvVs# Comparison of Gradient Boosting and Support Vector Machine for Drone Flig
 ---
 
 ## Abstract
-s
+
 We compare supervised classifiers for detecting tampered rows in UAV (drone) flight-log
 telemetry: **Gradient Boosting** (`HistGradientBoostingClassifier`), a tree-based approach
 that reaches a decision through a sequence of self-correcting decision trees, and a
