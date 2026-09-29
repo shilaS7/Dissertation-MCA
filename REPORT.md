@@ -297,6 +297,49 @@ reasonable plateau point** for the RBF comparison.
   comparison against models using all rows is not perfectly apples-to-apples; a larger
   sample would be a more favorable setting for the RBF kernel. Hyperparameters
   (`C`, `gamma`) are fixed, not tuned.
+- The model is **not validated on real flight logs**; an external check on three real
+  logs is reported in §6.1 and shows that it does not transfer in its current form.
+
+### 6.1 External check on real flight logs
+
+Three real flight logs (DJI Matrice 4D and M3D, per the logs' own `DroneType` field;
+1,107 records in total) were scored as an external check. They carry **no tamper labels**,
+so no accuracy metric can be computed and none is reported here — the check is qualitative.
+Flag rates alone cannot distinguish "detected tampering" from "mis-fired on clean data",
+so the rate while the aircraft is stationary on the ground is reported alongside, as a
+record where tampering is implausible:
+
+| Detector | Records flagged | Flagged while stationary |
+|---|---|---|
+| Gradient Boosting (main model) | 98.0–99.8% | **98.6–100%** |
+| Gradient Boosting (transfer variant) | 13.2–56.7% | 9.9–20.3% |
+| Pooled cross-flight baseline | 37.8–47.5% | 23.2–49.2% |
+
+The main model flags almost every record, including essentially every record in which the
+aircraft is stationary at zero recorded speed. This indicates the model is mis-firing on
+out-of-distribution input rather than detecting manipulation.
+
+Two distribution shifts account for it. The synthetic training data is sampled at ~0.1 s
+intervals against 2.0 s in the real logs — a twenty-fold difference that shifts every
+time-derived feature — and the source flight lies near 8°N, 98°E while the real flights
+lie between 24°N and 37°N, with absolute latitude and longitude used as model inputs.
+Every real record therefore falls outside the region of feature space the model was fitted
+on.
+
+A transfer variant (`scripts/train_transfer_model.py`), trained on synthetic data thinned
+to a 2 s interval and with absolute position and heading features removed, reduces the
+stationary flag rate to 9.9–20.3%, supporting that diagnosis. Its synthetic PR-AUC falls
+correspondingly (0.51–0.58 against 0.77), reflecting the loss of both training rows and
+features.
+
+Labelling real logs is not possible from the logs alone: they contain no ground truth and
+no verifiable integrity signature. Establishing one would require injecting known
+tampering into authentic flights to produce semi-synthetic labelled data, which is left to
+future work. With only three flights available, such an evaluation would also be limited
+to leave-one-flight-out cross-validation and would carry little statistical power.
+
+Rates above are reproducible via `scripts/summarise_real_logs.py`, which writes
+`results/real_log_summary.csv` from the per-detector outputs in `results/scored/`.
 
 ## 7. Conclusion
 
@@ -310,12 +353,20 @@ making the kernel nonlinear (RBF) recovers only part of the deficit. All models 
 better choice than a linear one, but Gradient Boosting offers the best accuracy with
 better scalability.
 
+This conclusion is scoped to the synthetic dataset. An external check on three real flight
+logs (§6.1) shows the trained model does not transfer to operational telemetry in its
+current form, flagging almost every record including stationary ground records. Deployment
+on real logs would require retraining at the target sampling rate and without absolute
+position features, and validation against labelled real-flight data that does not yet
+exist.
+
 ## 8. Reproducibility
 
 Environment and artifacts:
 
-- `pyproject.toml` / `uv.lock` — Python 3.12.12, pandas 3.0.5, numpy 2.5.2,
-  scikit-learn 1.9.0; dependencies pinned by `uv`.
+- `pyproject.toml` / `uv.lock` — Python 3.13.11 (project requires >= 3.12), pandas 3.0.5,
+  numpy 2.5.2, scipy 1.18.0, scikit-learn 1.9.0, matplotlib 3.11.1, joblib 1.5.3;
+  dependencies pinned by `uv` 0.11.14.
 - `src/drone_tamper/` — the pipeline as an importable package (data loading, feature
   engineering, models, metrics, aggregation, orchestration).
 - `scripts/run_pipeline.py` — runs the full experiment end to end (Steps 1-7, replicate 0
@@ -390,7 +441,8 @@ living inside notebook-cell string blobs.)
 
 ### 9.2 Environment and tooling choices
 
-- **Python 3.12 via `uv`.** `uv init --python 3.12` creates `pyproject.toml`,
+- **Python via `uv`.** The project declares `requires-python = ">=3.12"`; the results
+  reported here were produced on Python 3.13.11. `uv init` creates `pyproject.toml`,
   `.python-version`, and a lock file. `uv add numpy pandas scikit-learn matplotlib` pins
   exact versions in `uv.lock`, so any machine can recreate the interpreter and packages
   with `uv sync`. This makes the experiment reproducible without a hand-written

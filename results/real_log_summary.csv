@@ -1,0 +1,10 @@
+detector,flight,rows,flagged,flag_rate,stationary_rows,stationary_flag_rate,moving_flag_rate
+Gradient Boosting (main model),2026-01-13_11-49-05,448,447,0.9978,65,1.0,0.9974
+Gradient Boosting (main model),2026-04-29_06-51-32__1__5fd7a3a1fc,204,203,0.9951,172,0.9942,1.0
+Gradient Boosting (main model),2026-06-24_05-38-31,455,446,0.9802,69,0.9855,0.9793
+Gradient Boosting (transfer variant),2026-01-13_11-49-05,448,251,0.5603,65,0.1385,0.6319
+Gradient Boosting (transfer variant),2026-04-29_06-51-32__1__5fd7a3a1fc,204,27,0.1324,172,0.0988,0.3125
+Gradient Boosting (transfer variant),2026-06-24_05-38-31,455,258,0.567,69,0.2029,0.6321
+Pooled cross-flight baseline,2026-01-13_11-49-05,448,213,0.4754,65,0.4923,0.4726
+Pooled cross-flight baseline,2026-04-29_06-51-32__1__5fd7a3a1fc,204,77,0.3775,172,0.2616,1.0
+Pooled cross-flight baseline,2026-06-24_05-38-31,455,212,0.4659,69,0.2319,0.5078

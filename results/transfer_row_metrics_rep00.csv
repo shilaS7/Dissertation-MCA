@@ -1,0 +1,4 @@
+dataset,model,n,pos,roc_auc,pr_auc,f1,prec,rec,bal_acc,mcc
+balanced_holdout,GradientBoosting-transfer,6625,1382,0.6942,0.5072,0.4431,0.4247,0.4631,0.6489,0.2886
+strong,GradientBoosting-transfer,34750,9668,0.6813,0.5765,0.4842,0.4677,0.5019,0.6409,0.2759
+subtle,GradientBoosting-transfer,35290,10618,0.647,0.5379,0.445,0.4954,0.4038,0.6134,0.2418

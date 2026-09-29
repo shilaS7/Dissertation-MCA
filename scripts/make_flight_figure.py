@@ -74,7 +74,9 @@ def main() -> None:
     fig.autofmt_xdate(rotation=30)
     fig.tight_layout()
 
-    out_path = args.output or (ROOT / "results" / "scored" / f"{args.log_csv.stem}_ground_track.png")
+    # "baseline" in the name: this figure comes from the same-flight baseline detector,
+    # not from either trained model
+    out_path = args.output or (ROOT / "results" / "scored" / f"{args.log_csv.stem}__baseline_ground_track.png")
     out_path.parent.mkdir(parents=True, exist_ok=True)
     fig.savefig(out_path, dpi=150)
     plt.close(fig)

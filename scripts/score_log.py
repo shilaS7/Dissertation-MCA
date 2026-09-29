@@ -31,6 +31,8 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("log_csv", type=Path, help="path to the raw flight-log CSV to score")
     parser.add_argument("--model", type=Path, default=ROOT / "results/models/gb_rep00.joblib")
+    parser.add_argument("--out", type=Path, default=None,
+                        help="output CSV path (default: results/scored/<log>__<model>_scored.csv)")
     args = parser.parse_args()
 
     if not args.model.exists():
@@ -64,7 +66,9 @@ def main() -> None:
 
     out_dir = ROOT / "results" / "scored"
     out_dir.mkdir(parents=True, exist_ok=True)
-    out_path = out_dir / f"{args.log_csv.stem}_scored.csv"
+    # the model name is part of the filename so scoring the same log with a different
+    # model never silently overwrites an earlier run's per-row scores
+    out_path = args.out or (out_dir / f"{args.log_csv.stem}__{args.model.stem}_scored.csv")
     out.to_csv(out_path, index=False)
 
     n = len(out)
